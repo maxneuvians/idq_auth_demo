@@ -34,10 +34,24 @@
         <label for="push_msg">Body</label>
         <input type="text" name="msg" id="push_msg" class="form-control" required="required"/>
       </div>
-      <button type="submit" class="btn btn-default" id="send_Button">Submit</button>
+      <button type="submit" class="btn btn-default" id="send_button">Submit</button>
     </form>
     <p>
       <b>You clicked:</b><span id="push_result"></span>
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <hr/>
+    <h4>
+      Start implicit authentication
+    </h4>
+    <button type="submit" class="btn btn-default" id="start_challenge">Get challenge</button>
+    <div id="challenge-hold"></div>
+    <br/>
+    <b>You identified as:</b><span id="challenge_result"></span>
     </p>
   </div>
 </div>

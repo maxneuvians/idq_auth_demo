@@ -17,6 +17,16 @@ defmodule IdqAuthDemoWeb.BrokerChannel do
     {:reply, {:ok, %{}}, socket}
   end
 
+  def handle_in("start_challenge", _params, socket) do
+    username = socket.topic |> String.replace("broker:", "")
+    {:ok, challenge, _pid} = IdqAuth.Implicit.start_challenge(&check_challenge_result/2, true, %{username: username})
+    {:reply, {:ok, %{challenge: Base.encode64(challenge)}}, socket}
+  end
+
+  def check_challenge_result(params, %{username: username}) do
+    IdqAuthDemoWeb.Endpoint.broadcast "broker:" <> username, "challenge_result", params
+  end
+
   def check_push_result(%{"description" => "accept"}, %{username: username}) do
     IdqAuthDemoWeb.Endpoint.broadcast "broker:" <> username, "push_result", %{result: "Accepted"}
   end
