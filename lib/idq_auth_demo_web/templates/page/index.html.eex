@@ -19,7 +19,7 @@
 </div>
 
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-xs-6">
     <h4>
       Send yourself a push notification
       <br/>
@@ -40,10 +40,8 @@
       <b>You clicked:</b><span id="push_result"></span>
     </p>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-xs-12">
+  <div class="col-xs-6">
     <hr/>
     <h4>
       Start implicit authentication

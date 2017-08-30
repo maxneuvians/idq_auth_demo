@@ -34,7 +34,7 @@ $("#start_challenge").on("click", e => {
   e.preventDefault();
   channel.push("start_challenge")
     .receive("ok", resp => {
-      $("#challenge-hold").html();
+      $("#challenge-hold").html("");
       $("<img src='data:image/png;base64," + resp.challenge + "' />").prependTo("#challenge-hold")
     })
 })
